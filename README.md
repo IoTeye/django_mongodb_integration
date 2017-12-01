@@ -3,7 +3,7 @@
 Step 1 install django
 https://docs.djangoproject.com/en/1.11/intro/install/
 
-Step 2 install managodb 			
+Step 2 install managodb && test		
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
 Step 3 mongoengine and django settings
