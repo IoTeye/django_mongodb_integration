@@ -80,22 +80,6 @@ DATABASES = {
     }
 }
 
-import mongoengine
-SESSION_ENGINE = 'mongoengine.django.sessions'
-
-_MONGODB_USER = 'root'
-_MONGODB_PASSWD = 'ioteye1234'
-_MONGODB_HOST = 'localhost'
-_MONGODB_NAME = 'cong'
-_MONGODB_DATABASE_HOST = \
-    'mongodb://%s:%s@%s/%s' \
-    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-
-mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
-
-AUTHENTICATION_BACKENDS = (
-    'mongoengine.django.auth.MongoEngineBackend',
-)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
