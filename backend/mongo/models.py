@@ -16,22 +16,28 @@ class Places(models.Model):
     location = EmbeddedModelField('Location')
     name = models.CharField(max_length=100)
     organization_id = models.CharField(max_length=36)
-    organization_name = CharField(max_length=200)
+    organization_name = models.CharField(max_length=200)
     tags = ListField()
     updatedAt = models.DateTimeField(auto_now_add=True)
     geopoint = ListField()
 
+class Anchor(models.Model):
+    lat = models.FloatField()
+    lng = models.FloatField()
+
+
+
 
 class Floors(models.Model):
-    anchors = ListField()
+    anchors = ListField(EmbeddedModelField('Anchor'))
     createdAt = models.DateTimeField(auto_now_add=True)
-    floorplan_image_url = models.URLField¶()
+    floorplan_image_url = models.URLField()
     indooratlas_floor_id =models.CharField(max_length=36)
     indooratlas_floorplan_id = models.CharField(max_length=36)
     name = models.CharField(max_length=100)
     place_name = models.CharField(max_length=100)
     organization_id = models.IntegerField()
-    organization_name = CharField(max_length=200)
+    organization_name = models.CharField(max_length=200)
     place_id = models.IntegerField()
     updatedAt = models.DateTimeField(auto_now_add=True)
     geopoint = ListField()
@@ -42,7 +48,7 @@ class departments(models.Model):
     floor_name = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     organization_id = models.IntegerField()
-    organization_name = CharField(max_length=200)
+    organization_name = models.CharField(max_length=200)
     place_id = models.CharField(max_length=36)
     place_name = models.CharField(max_length=100)
     tags = ListField()
@@ -60,30 +66,30 @@ class Geofences(models.Model):
     place_id = models.CharField(max_length=36)
     address = models.TextField()
     department_id = models.IntegerField()
-    radius = models.CharField()
+    radius = models.FloatField()
     organization_id = models.CharField(max_length=36)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now_add=True)
-    organization_name = CharField(max_length=200)
+    organization_name = models.CharField(max_length=200)
     place_name = models.CharField(max_length=100)
     geopoint = ListField()
 
+class Marker(models.Model):
+    lat = models.FloatField()
+    lng = models.FloatField()
 
+class Data(models.Model):
+    instanceid = models.CharField(max_length=36)
+    major = models.IntegerField()
+    minor = models.IntegerField()
+    namespaceid = models.CharField(max_length=36)
+    uuid = models.CharField(max_length=36)
+    marker = EmbeddedModelField('Marker')
 
 
 class Inputs(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
-    "data": {
-        "instanceid": null,
-        "major": 1,
-        "marker": {
-        "lat": 40.6620232,
-        "lng": -74.6283752
-        },
-        "minor": 1,
-        "namespaceid": null,
-        "uuid": "1"
-        },
+    data = EmbeddedModelField('Data')
     department_id = models.CharField(max_length=36)
     floor_id = models.CharField(max_length=36)
     name = models.CharField(max_length=100)
