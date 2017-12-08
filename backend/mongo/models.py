@@ -85,7 +85,10 @@ class Data(models.Model):
     namespaceid = models.CharField(max_length=36)
     uuid = models.CharField(max_length=36)
     marker = EmbeddedModelField('Marker')
-
+    operation = models.CharField(max_length=100)
+    target = models.CharField(max_length=36)
+    type = models.CharField(max_length=36)
+    tags = ListField()
 
 class Inputs(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
@@ -107,10 +110,3 @@ class Events(models.Model):
     updatedAt = models.DateTimeField(auto_now_add=True)
     organization_id = models.CharField(max_length=36)
     organization_name = models.CharField(max_length=200)
-
-
-class Data(models.Model):
-    operation = models.CharField(max_length=100)
-    target = models.CharField(max_length=36)
-    type = models.CharField(max_length=36)
-    tags = ListField()

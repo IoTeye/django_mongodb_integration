@@ -1,0 +1,18 @@
+1.mongo database input
+	1)python manage.py shell
+	2)example :
+	>>> from nonrelblog.models import Post
+	>>> post = Post.objects.create(title='Hello MongoDB!',text='Just wanted to drop a note from Django. Cya!',tags=['mongodb', 'django'])
+	>>> post.save()
+	3)check the mongo db 
+	open terminal type mongo(before that make sure ur mongo db start),type show dbs,use my_database(name of database),db.{{collectionname}}.find()
+
+
+2.check api
+	127.0.0.1:8000/Location/----------------all Location
+	127.0.0.1:8000/Places/----------------all Places
+	127.0.0.1:8000/Floors/----------------all Floors
+	127.0.0.1:8000/Departments/----------------all Departments
+	127.0.0.1:8000/Geofences/----------------all Geofences
+	127.0.0.1:8000/Inputs/----------------all Inputs
+	127.0.0.1:8000/Events/----------------all Events

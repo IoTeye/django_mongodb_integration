@@ -28,4 +28,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^mongo/index/$',index),
     url(r'^Location/', views.LocationList.as_view()),
+    url(r'^Places/', views.PlacesList.as_view()),
+    url(r'^Floors/', views.FloorsList.as_view()),
+    url(r'^Departments/', views.DepartmentsList.as_view()),
+    url(r'^Geofences/', views.GeofencesList.as_view()),
+    url(r'^Inputs/', views.InputsList.as_view()),
+    url(r'^Events/', views.EventsList.as_view()),
 ]

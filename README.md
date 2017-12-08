@@ -19,3 +19,7 @@ https://www.cnblogs.com/zhouyang123200/p/6606405.html (Chinese)
 http://www.django-rest-framework.org/tutorial/1-serialization/(English)
 serializer.py class Inheritance serializers.ModelSerializer not serializers.Serializer
 https://www.youtube.com/watch?v=ejJ-2oz4AgI (viedo)
+
+Step 5 use curl and http Text
+sudo apt install curl
+sudo apt install httpies
