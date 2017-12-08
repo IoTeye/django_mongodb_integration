@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from models import Location
 
-class LocationSerializer(serializers.Serializer):
+class LocationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        models=Location
+        model = Location
         fields=('lat','lng','zoom')
-        #fields='__all__'
+        #fields = '__all__'
