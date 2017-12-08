@@ -3,7 +3,7 @@ from django.db import models
 
 from djangotoolbox.fields import ListField,DictField,EmbeddedModelField
 # Create your models here.
-places = ListField(EmbeddedModelField('Places'))
+
 
 class Location(models.Model):
     lat = models.FloatField()
@@ -42,7 +42,7 @@ class Floors(models.Model):
     updatedAt = models.DateTimeField(auto_now_add=True)
     geopoint = ListField()
 
-class departments(models.Model):
+class Departments(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     floor_id = models.CharField(max_length=36)
     floor_name = models.CharField(max_length=100)

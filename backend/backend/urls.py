@@ -16,8 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mongo.views import index
+from mongo import views
+from django.conf.urls import url, include
+from rest_framework.urlpatterns import format_suffix_patterns
+#from mongoadmin import site
+
+#admin.autodiscover()
 
 urlpatterns = [
+    #url(r'^admin/', site.urls),
     url(r'^admin/', admin.site.urls),
-    url(r'^mongo/index/$', index),
+    url(r'^mongo/index/$',index),
+    url(r'^Location/', views.LocationList.as_view()),
 ]
