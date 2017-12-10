@@ -50,3 +50,16 @@ class InputsSerializer(serializers.ModelSerializer):
         model = Inputs
         fields=('createdAt','data','department_id','floor_id','name','organization_id','organization_name','place_id','type','geopoint','updatedAt')
         #fields = '__all__'
+
+
+class LoginSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Account
+        fields=('user','token','organization','application')
+
+class CurrentuserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Current_user
+        fields=('id','name','email','organization_id','organization','tokens','data','type')

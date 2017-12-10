@@ -102,13 +102,38 @@ class EventsList(APIView):
     #show all
     def get(self,request):
         events1 = Events.objects.all()
-        serializer = Serializer(events1,many=True)
+        serializer = EventsSerializer(events1,many=True)
         print(serializer)
         return Response(serializer.data)
 
     #add one
     def post(self):
         pass
+
+class LoginList(APIView):
+    #show all
+    def get(self,request):
+        account1 = Account.objects.all()
+        serializer = LoginSerializer(account1,many=True)
+        print(serializer)
+        return Response(serializer.data)
+
+    #add one
+    def post(self):
+        pass
+
+class CurrentuserList(APIView):
+    #show all
+    def get(self,request):
+        Currentuser1 = Current_user.objects.all()
+        serializer = CurrentuserSerializer(Currentuser1,many=True)
+        print(serializer)
+        return Response(serializer.data)
+
+    #add one
+    def post(self):
+        pass
+
 
 def index (req):
 
