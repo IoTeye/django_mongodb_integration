@@ -23,6 +23,10 @@
 	python manage.py runserver ip:8000
 
 4.check method
+	***
+	***
+	current_user
+	curl http://127.0.0.1:8000/core/current_user/
 	Get all
 	curl http://127.0.0.1:8000/core/location/
 	curl http://127.0.0.1:8000/core/places/

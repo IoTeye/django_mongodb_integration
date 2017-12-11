@@ -190,6 +190,6 @@ class Current_user(models.Model):
     email = models.EmailField(max_length=254)
     organization_id = models.CharField(max_length=36)
     organization = EmbeddedModelField('Organization')
-    tokens = EmbeddedModelField('Tokens')
+    tokens = ListField(DictField())
     data = EmbeddedModelField('Data')
     type = models.CharField(max_length=20)

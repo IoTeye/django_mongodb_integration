@@ -188,11 +188,20 @@ class CurrentuserList(APIView):
         Currentuser1 = Current_user.objects.all()
         serializer = CurrentuserSerializer(Currentuser1,many=True)
         print(serializer)
-        return Response(serializer.data)
-
+        a={'a':123}
+        #return Response(serializer.data)
+        return Response(a)
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = CurrentuserSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 def index (req):

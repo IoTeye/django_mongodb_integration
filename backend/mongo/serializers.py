@@ -62,4 +62,5 @@ class CurrentuserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Current_user
+        #fields=('text')
         fields=('id','name','email','organization_id','organization','tokens','data','type')
