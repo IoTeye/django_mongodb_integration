@@ -23,7 +23,20 @@
 	python manage.py runserver ip:8000
 
 4.check method
-	get all
-	curl http://127.0.0.1:8000/core/Location/
-	creat
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/Location/
+	Get all
+	curl http://127.0.0.1:8000/core/location/
+	curl http://127.0.0.1:8000/core/places/
+	curl http://127.0.0.1:8000/core/floors/
+	curl http://127.0.0.1:8000/core/departments/
+	curl http://127.0.0.1:8000/core/geofences/
+	curl http://127.0.0.1:8000/core/inputs/
+	curl http://127.0.0.1:8000/core/events/
+	Create
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/location/
+	curl -d '{"organization_name":"xxx","name":"cong","zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/places/
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/floors/
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/departments/
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/geofences/
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/inputs/
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/events/
+	Delete

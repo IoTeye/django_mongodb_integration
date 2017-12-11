@@ -28,14 +28,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #----test api
     url(r'^mongo/index/$',index),
-    url(r'^core/Location/', views.LocationList.as_view()),
+    url(r'^core/location/', views.LocationList.as_view()),
     #----get all information&&creat API
-    url(r'^core/Places/', views.PlacesList.as_view()),
-    url(r'^core/Floors/', views.FloorsList.as_view()),
-    url(r'^core/Departments/', views.DepartmentsList.as_view()),
-    url(r'^core/Geofences/', views.GeofencesList.as_view()),
-    url(r'^core/Inputs/', views.InputsList.as_view()),
-    url(r'^core/Events/', views.EventsList.as_view()),
+    url(r'^core/places/', views.PlacesList.as_view()),
+    url(r'^core/floors/', views.FloorsList.as_view()),
+    url(r'^core/departments/', views.DepartmentsList.as_view()),
+    url(r'^core/geofences/', views.GeofencesList.as_view()),
+    url(r'^core/inputs/', views.InputsList.as_view()),
+    url(r'^core/events/', views.EventsList.as_view()),
     #----auth api
     url(r'^core_auth/login/', views.LoginList.as_view()),
     url(r'^core/current_user/', views.CurrentuserList.as_view()),
