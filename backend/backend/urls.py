@@ -27,7 +27,8 @@ urlpatterns = [
     #url(r'^admin/', site.urls),
     url(r'^admin/', admin.site.urls),
     #----test api
-    url(r'^mongo/index/$',index),
+    #url(r'^mongo/index/(\d+)/$',index),
+    url(r'^mongo/index/',index),
     url(r'^core/location/', views.LocationList.as_view()),
     #----get all information&&creat API
     url(r'^core/places/', views.PlacesList.as_view()),
@@ -38,7 +39,7 @@ urlpatterns = [
     url(r'^core/events/', views.EventsList.as_view()),
     #----auth api
     url(r'^core_auth/login/', views.LoginList.as_view()),
-    url(r'^core/current_user/', views.CurrentuserList.as_view()),
+    url(r'^core/current_user', views.CurrentuserList.as_view()),
     #----delete API
     #----update API
     #----get a special API
