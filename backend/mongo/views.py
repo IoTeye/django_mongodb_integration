@@ -188,7 +188,8 @@ class CurrentuserList(APIView):
         Currentuser1 = Current_user.objects.all()
         serializer = CurrentuserSerializer(Currentuser1,many=True)
         print(serializer)
-        a={'a':123}
+        a={"id": "0991202f-521b-450b-981f-14beac2c1ca1","name": "Sheng Ming-Jye","email": "mingjye.sheng@ioteyeinc.com","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization": {"id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","name": "Ming-Jye Sheng","background": "United States","country": "United States","email": "mingjye.sheng@ioteyeinc.com","plan": "guru","planStatus": "trialing","trialEnd": 1506966163,"proximiioBusRef": "https://proximiio-bus.firebaseio.com/organizations/3b8ae3c0-3527-431b-a444-8e62c4da077e","eventBusRef": "https://proximiio-event-bus.firebaseio.com/organizations/3b8ae3c0-3527-431b-a444-8e62c4da077e"}
+}
         #return Response(serializer.data)
         return Response(a)
     #add one

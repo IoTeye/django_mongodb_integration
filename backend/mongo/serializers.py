@@ -19,7 +19,7 @@ class FloorsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Floors
-        fields=('anchors','createdAt','floorplan_image_url','indooratlas_floor_id','indooratlas_floorplan_id','name','place_name','rganization_id','organization_name','place_id','updatedAt','geopoint')
+        fields=('anchors','createdAt','floorplan_image_url','indooratlas_floor_id','indooratlas_floorplan_id','name','place_name','organization_id','organization_name','place_id','updatedAt','geopoint')
         #fields = '__all__'
 
 class DepartmentsSerializer(serializers.ModelSerializer):

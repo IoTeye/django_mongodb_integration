@@ -37,10 +37,16 @@
 	curl http://127.0.0.1:8000/core/events/
 	Create
 	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/location/
+
 	curl -d '{"address": "63 Hartley Lane, Basking Ridge, NJ 07920, US","id": "5d77706c-5cb5-4ac8-a50b-832de428132d","location": {"lat": 53.5979513,"lng": -2.1607245},"name": "Demo place","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","tags": ["Demo place tag"],"geopoint": [-2.1607245,53.5979513]}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/places/
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/floors/
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/departments/
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/geofences/
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/inputs/
-	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/events/
+
+	curl -d '{"anchors": [{"lat": 53.5979513,"lng": -2.1607245},{"lat": 53.5979513,"lng": -2.1617245},{"lat": 53.5969513,"lng": -2.1617245},{"lat": 53.5969513,"lng": -2.1607245}],"createdAt": "2017-11-11T03:52:29.719Z","id": "4f077b48-8e9a-4471-a1c9-b88d1a48349f","name": "Demo floor","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","place_id": "5d77706c-5cb5-4get8-a50b-832de428132d","place_name": "Demo place","updatedAt": "2017-11-11T03:52:29.719Z","geopoint": [-2.1607245,53.5979513]}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/floors/
+
+	curl -d '{"floor_id": "4f077b48-8e9a-4471-a1c9-b88d1a48349f","floor_name": "Demo floor","id": "ffb81c48-331f-4b49-aa28-3a364621567e","name": "Demo department","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","place_id": "5d77706c-5cb5-4ac8-a50b-832de428132d","place_name": "Demo place","tags": ["Demo place tag"]}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/departments/
+
+	curl -d '{"area": {"lat": 40.6620232,"lng": -74.6283752},"name": "home","place_id": "0578d42e-e9a0-49f6-b6f7-ebae3f3a4f42","address": "63 Hartley Lane, Basking Ridge, NJ 07920","department_id": null,"radius": 17.162934600295202,"organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Sheng Ming-Jye","place_name": "home","id": "3bcfb600-8f69-4c22-938c-f4228acf2552","geopoint": [-74.6283752,40.6620232]}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/geofences/
+
+	curl -d '{"data": {"circle": {"lat": 53.5979513,"lng": -2.1607245},"map": {"lat": 53.5979513,"lng": -2.1607245,"zoom": 18},"radius": 30},"department_id": "ffb81c48-331f-4b49-aa28-3a364621567e","id": "270048f0-0d33-43c9-a3c8-2113fd80ec59","name": "Demo input","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","type": "GPS Geofence"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/inputs/
+
+	curl -d '{"event": "config-change","data":{"operation": "create","target": "270048f0-0d33-43c9-a3c8-2113fd80ec59","type": "input","tags": []},"organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","id": "565d93e2-415d-4bbd-9082-8c47496c620e"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/events/
 	Delete
