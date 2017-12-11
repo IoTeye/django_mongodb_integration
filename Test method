@@ -8,7 +8,7 @@
 	open terminal type mongo(before that make sure ur mongo db start),type show dbs,use my_database(name of database),db.{{collectionname}}.find()
 
 
-2.check api
+2.api
 	127.0.0.1:8000/core/Location/----------------all Location
 	127.0.0.1:8000/core/Places/----------------all Places
 	127.0.0.1:8000/core/Floors/----------------all Floors
@@ -18,3 +18,12 @@
 	127.0.0.1:8000/core/Events/----------------all Events
 	127.0.0.1:8000/core_auth/login/
 	127.0.0.1:8000/core/current_user/
+
+3.run server
+	python manage.py runserver ip:8000
+
+4.check method
+	get all
+	curl http://127.0.0.1:8000/core/Location/
+	creat
+	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/Location/

@@ -15,23 +15,35 @@ from rest_framework.response import Response
 
 from rest_framework import status
 
+from django.http import Http404
+
 from models import *
 
 from serializers import *
 # Create your views here.
 
 class LocationList(APIView):
+    #permission_classes = (permissions.AllowAny,)
     #show all
-    def get(self,request):
+    def get(self,request,format=None):
+        print request.method
+
         location1 = Location.objects.all()
         serializer = LocationSerializer(location1,many=True)
         print(serializer)
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = LocationSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 class PlacesList(APIView):
     #show all
@@ -42,8 +54,16 @@ class PlacesList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = PlacesSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 class FloorsList(APIView):
@@ -55,8 +75,16 @@ class FloorsList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = FloorsSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 class DepartmentsList(APIView):
@@ -68,8 +96,16 @@ class DepartmentsList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = DepartmentsSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 class GeofencesList(APIView):
@@ -81,8 +117,16 @@ class GeofencesList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = GeofencesSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 class InputsList(APIView):
@@ -94,8 +138,16 @@ class InputsList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = InputsSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 
 class EventsList(APIView):
@@ -107,8 +159,16 @@ class EventsList(APIView):
         return Response(serializer.data)
 
     #add one
-    def post(self):
-        pass
+    def post(self,request,format=None):
+        print request.DATA
+        serializer = EventsSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        return Response("ok")
 
 class LoginList(APIView):
     #show all
