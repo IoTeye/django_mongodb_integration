@@ -23,8 +23,7 @@ from serializers import *
 # Create your views here.
 
 class LocationList(APIView):
-    #permission_classes = (permissions.AllowAny,)
-    #show all
+    #List all users, or create a new user.
     def get(self,request,format=None):
         print request.method
 
@@ -42,8 +41,37 @@ class LocationList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class LocationDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Location.objects.get(pk=pk)
+    except Location.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        location = self.get_object(pk)
+        location = LocationSerializer(location)
+        return Response(location.data)
+
+    def put(self, request, pk, format=None):
+        location = self.get_object(pk)
+        serializer = LocationSerializer(location, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def delete(self, request, pk, format=None):
-        return Response("ok")
+        location = self.get_object(pk)
+        location.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
 
 class PlacesList(APIView):
     #show all
@@ -64,6 +92,34 @@ class PlacesList(APIView):
 
     def delete(self, request, pk, format=None):
         return Response("ok")
+
+class PlacesDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Places.objects.get(pk=pk)
+    except Places.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        places = self.get_object(pk)
+        places = PlacesSerializer(places)
+        return Response(places.data)
+
+    def put(self, request, pk, format=None):
+        places = self.get_object(pk)
+        serializer = PlacesSerializer(places, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        places = self.get_object(pk)
+        places.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class FloorsList(APIView):
@@ -87,6 +143,34 @@ class FloorsList(APIView):
         return Response("ok")
 
 
+class FloorsDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Floors.objects.get(pk=pk)
+    except Floors.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        floors = self.get_object(pk)
+        floors = FloorsSerializer(floors)
+        return Response(floors.data)
+
+    def put(self, request, pk, format=None):
+        floors = self.get_object(pk)
+        serializer = FloorsSerializer(floors, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        floors = self.get_object(pk)
+        floors.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class DepartmentsList(APIView):
     #show all
     def get(self,request):
@@ -107,6 +191,33 @@ class DepartmentsList(APIView):
     def delete(self, request, pk, format=None):
         return Response("ok")
 
+class DepartmentsDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Departments.objects.get(pk=pk)
+    except Departments.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        departments = self.get_object(pk)
+        departments = DepartmentsSerializer(departments)
+        return Response(departments.data)
+
+    def put(self, request, pk, format=None):
+        departments = self.get_object(pk)
+        serializer = DepartmentsSerializer(departments, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        departments = self.get_object(pk)
+        departments.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class GeofencesList(APIView):
     #show all
@@ -129,6 +240,34 @@ class GeofencesList(APIView):
         return Response("ok")
 
 
+class GeofencesDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Geofences.objects.get(pk=pk)
+    except Geofences.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        geofences = self.get_object(pk)
+        geofences = GeofencesSerializer(geofences)
+        return Response(geofences.data)
+
+    def put(self, request, pk, format=None):
+        geofences = self.get_object(pk)
+        serializer = GeofencesSerializer(geofences, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        geofences = self.get_object(pk)
+        geofences.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class InputsList(APIView):
     #show all
     def get(self,request):
@@ -149,6 +288,33 @@ class InputsList(APIView):
     def delete(self, request, pk, format=None):
         return Response("ok")
 
+class InputsDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Inputs.objects.get(pk=pk)
+    except Inputs.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        inputs = self.get_object(pk)
+        inputs = InputsSerializer(inputs)
+        return Response(inputs.data)
+
+    def put(self, request, pk, format=None):
+        inputs = self.get_object(pk)
+        serializer = InputsSerializer(inputs, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        inputs = self.get_object(pk)
+        inputs.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class EventsList(APIView):
     #show all
@@ -169,6 +335,34 @@ class EventsList(APIView):
 
     def delete(self, request, pk, format=None):
         return Response("ok")
+
+class EventsDetail(APIView):
+
+    #Retrieve, update or delete a user instance.
+
+    def get_object(self, pk):
+        try:
+            return Events.objects.get(pk=pk)
+    except Events.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        events = self.get_object(pk)
+        events = EventsSerializer(events)
+        return Response(events.data)
+
+    def put(self, request, pk, format=None):
+        events = self.get_object(pk)
+        serializer = EventsSerializer(events, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        events = self.get_object(pk)
+        events.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class LoginList(APIView):
     #show all

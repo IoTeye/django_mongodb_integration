@@ -49,4 +49,5 @@
 	curl -d '{"data": {"circle": {"lat": 53.5979513,"lng": -2.1607245},"map": {"lat": 53.5979513,"lng": -2.1607245,"zoom": 18},"radius": 30},"department_id": "ffb81c48-331f-4b49-aa28-3a364621567e","id": "270048f0-0d33-43c9-a3c8-2113fd80ec59","name": "Demo input","organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","type": "GPS Geofence"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/inputs/
 
 	curl -d '{"event": "config-change","data":{"operation": "create","target": "270048f0-0d33-43c9-a3c8-2113fd80ec59","type": "input","tags": []},"organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","id": "565d93e2-415d-4bbd-9082-8c47496c620e"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/events/
+
 	Delete

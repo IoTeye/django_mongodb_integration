@@ -30,7 +30,7 @@ urlpatterns = [
     #url(r'^mongo/index/(\d+)/$',index),
     url(r'^mongo/index/',index),
     url(r'^core/location/', views.LocationList.as_view()),
-    #----get all information&&creat API
+    #----get all information&&create API
     url(r'^core/places/', views.PlacesList.as_view()),
     url(r'^core/floors/', views.FloorsList.as_view()),
     url(r'^core/departments/', views.DepartmentsList.as_view()),
@@ -43,5 +43,12 @@ urlpatterns = [
     #----delete API
     #----update API
     #----get a special API
+    url(r'^core/location/(?P<pk>[0-9]+)/$', views.LocationDetail.as_view()),
+    url(r'^core/places/(?P<pk>[0-9]+)/$', views.PlacesDetail.as_view()),
+    url(r'^core/floors/(?P<pk>[0-9]+)/$', views.FloorsDetail.as_view()),
+    url(r'^core/departments/(?P<pk>[0-9]+)/$', views.DepartmentsDetail.as_view()),
+    url(r'^core/geofences/(?P<pk>[0-9]+)/$', views.GeofencesDetail.as_view()),
+    url(r'^core/inputs/(?P<pk>[0-9]+)/$', views.InputsDetail.as_view()),
+    url(r'^core/events/(?P<pk>[0-9]+)/$', views.EventsDetail.as_view()),
 
 ]
