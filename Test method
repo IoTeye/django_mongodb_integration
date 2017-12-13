@@ -35,6 +35,19 @@
 	curl http://127.0.0.1:8000/core/geofences/
 	curl http://127.0.0.1:8000/core/inputs/
 	curl http://127.0.0.1:8000/core/events/
+
+	Get a special one
+
+	curl http://127.0.0.1:8000/core/location/lat No.
+	curl http://127.0.0.1:8000/core/places/_id No.
+	curl http://127.0.0.1:8000/core/floors/_id No.
+	curl http://127.0.0.1:8000/core/departments/_id No.
+	curl http://127.0.0.1:8000/core/geofences/_id No.
+	curl http://127.0.0.1:8000/core/inputs/_id No.
+	curl http://127.0.0.1:8000/core/events/_id No.
+
+
+
 	Create
 	curl -d '{"lat":15,"lng":15,"zoom":15}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/location/
 
@@ -51,3 +64,4 @@
 	curl -d '{"event": "config-change","data":{"operation": "create","target": "270048f0-0d33-43c9-a3c8-2113fd80ec59","type": "input","tags": []},"organization_id": "3b8ae3c0-3527-431b-a444-8e62c4da077e","organization_name": "Ming-Jye Sheng","id": "565d93e2-415d-4bbd-9082-8c47496c620e"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/core/events/
 
 	Delete
+	curl -X DELETE http://127.0.0.1:8000/core/floors/_id No.
